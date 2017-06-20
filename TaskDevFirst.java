@@ -3,7 +3,7 @@
  * multiples of 3 are replaced by 3*N, where N is the 
  * required multiplier, so as to obtain a replacement number.
  */
-class TaskDevFirst{
+class TaskDevFirst {
   public static void main(String[] args) {
     final int START_COUNT = 0;
     final int END_COUNT = 100;
