@@ -12,8 +12,8 @@ class TaskDevFirst{
 		for (int i = START_COUNT; i <= END_COUNT; i++) {
 			if (i % FACTOR == 0) {
 				int temp = i/FACTOR;
-				System.out.println(FACTOR+"*"+temp);
-			}	else {
+			  System.out.println(FACTOR+"*"+temp);
+			} else {
 				System.out.println(i);
 			}
 		}
