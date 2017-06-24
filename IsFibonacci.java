@@ -4,7 +4,7 @@
  *
  * Example:
  * > java IsFibonacci 8
- * 8 isFibonacci.
+ * 8 is Fibonacci.
  * Program exited.
  */
 class IsFibonacci {
