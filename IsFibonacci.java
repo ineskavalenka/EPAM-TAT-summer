@@ -16,17 +16,18 @@ class IsFibonacci {
        return isPerfectSquare(5*num*num - 4) || isPerfectSquare(5*num*num + 4);
      }
   }
+  
   private static boolean isPerfectSquare(int num){
     double sqrt = Math.sqrt(num);
     return sqrt * sqrt == num;
   }
+  
   public static void main(String[] args) {
     try {
       int num = Integer.parseInt(args[0]);
       if (num < 0) {
         throw new Exception();
       }
-      
       if (isNumberFibSeq(num)) {
         System.out.println(num + " is Fibonacci.");
       } else {
