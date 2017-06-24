@@ -11,8 +11,8 @@ class IsFibonacci {
     if (num == 0 || num == 1) {
      return true;
     } else {
-       // 5n^2 - 4 OR 5n^2 + 4 should be perfect squares
-       return isPerfectSquare(5*num*num - 4) || isPerfectSquare(5*num*num + 4);
+      // 5n^2 - 4 OR 5n^2 + 4 should be perfect squares
+      return isPerfectSquare(5*num*num - 4) || isPerfectSquare(5*num*num + 4);
     }
   }
   
