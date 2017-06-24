@@ -16,7 +16,7 @@ class IsFibonacci {
     }
   }
   
-  private static boolean isPerfectSquare(int num){
+  private static boolean isPerfectSquare(int num) {
     double sqrt = Math.sqrt(num);
     return sqrt * sqrt == num;
   }
