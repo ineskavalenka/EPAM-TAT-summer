@@ -9,12 +9,12 @@
  */
 class IsFibonacci {
   public static boolean isNumberFibSeq(int num) {
-   if (num == 0 || num == 1) {
+    if (num == 0 || num == 1) {
      return true;
-     } else {
+    } else {
        // 5n^2 - 4 OR 5n^2 + 4 should be perfect squares
        return isPerfectSquare(5*num*num - 4) || isPerfectSquare(5*num*num + 4);
-     }
+    }
   }
   
   private static boolean isPerfectSquare(int num){
