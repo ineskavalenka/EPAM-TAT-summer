@@ -1,7 +1,6 @@
 /**
  * The program checks, whether a non-negative integer <x> is a Fibonacci number.
  * <x> is a command-line argument.
- *
  * Example:
  * > java IsFibonacci 8
  * 8 is Fibonacci.
