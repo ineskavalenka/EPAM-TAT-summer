@@ -9,7 +9,7 @@ class NonDecreasingSequence {
     boolean isNonDecreasing = true;   
     if (sequenceSplit.length < 2)
     {
-    System.out.println("Sequence must contain at least two numbers. Program exited.");
+      System.out.println("Sequence must contain at least two numbers. Program exited.");
     } else {
       try { 
         for (int i = 0; i < sequenceSplit.length-1; i++) {
