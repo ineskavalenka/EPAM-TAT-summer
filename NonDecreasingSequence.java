@@ -3,7 +3,7 @@ import java.util.Scanner;
 class NonDecreasingSequence {
   public static void main(String[] args) {
     System.out.println("Enter a sequence of integers separated by spaces.");  
-    Scanner input = new Scanner (System.in);
+    Scanner input = new Scanner(System.in);
     String sequence = input.nextLine();
     String sequenceSplit[] = sequence.split(" ");   
     boolean isNonDecreasing = true;   
