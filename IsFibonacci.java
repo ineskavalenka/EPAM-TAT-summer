@@ -36,7 +36,7 @@ class IsFibonacci {
       System.out.println("Incorrect input.");
       System.out.println("Input number should be a non-negative integer, less than 2147483647.");
     } finally { 
-      System.out.println("Program exited.");
+      System.out.println("Tratata.");
     }
   }
 }
