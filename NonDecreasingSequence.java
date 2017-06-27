@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * Determines, whether the input sequence of integers is non-decreasing.
+ */
 class NonDecreasingSequence {
   public static void main(String[] args) {
     System.out.println("Enter a sequence of integers separated by spaces.");  
