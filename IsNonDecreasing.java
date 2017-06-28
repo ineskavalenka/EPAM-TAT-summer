@@ -7,10 +7,13 @@ import java.util.Scanner;
  * the program requests a sequence from the console.
  */
 class IsNonDecreasing {
-/**
- * Determines, whether the input sequence of integers is non-decreasing,
- * and writes the result to the console.
- */
+  /**
+   * Determines, whether the input sequence of integers is non-decreasing,
+   * and writes the result to the console.
+   *
+   * @param sequenceSplit a sequence to be analyzed; in case the sequence
+   *                      has incorrect format, warnings will be written to the console. 
+   */
   public static void checkIfNonDecreasing (String[] sequenceSplit) {
     try {    
       if (sequenceSplit.length < 2) {
