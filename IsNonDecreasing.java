@@ -19,7 +19,7 @@ class IsNonDecreasing {
     while (isRepeatRequired) {
       try {  
         isNonDecreasing = analyzer.checkIfNonDecreasing(inputSequence);
-        //no exceptions => we have result
+        // no exceptions => we have result
         isRepeatRequired = false;
         if (isNonDecreasing) {
           System.out.println("Sequence is non-decreasing.");
