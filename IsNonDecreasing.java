@@ -1,5 +1,5 @@
 /**
- * Determines, whether the input sequence of integers is non-decreasing.
+ * Determines whether the input sequence of integers is non-decreasing.
  * The user can enter the sequence as a command-line argument.
  * If the user doesn't enter the sequence as a command-line argument,
  * the program requests a sequence from the console.
@@ -9,33 +9,22 @@
 class IsNonDecreasing {
   public static void main(String[] args) {
     SequenceAnalyzer analyzer = new SequenceAnalyzer();
-    boolean isNonDecreasing = false;
     ConsoleReader reader = new ConsoleReader();
     String[] inputSequence = args;
-    if (args.length == 0) {   
-      inputSequence = reader.readSequence();
-    }
-    boolean isRepeatRequired = true;
-    while (isRepeatRequired) {
+    do {
+      InputSequenceProvider sequenceProvider = new InputSequenceProvider();
+      String[] inputSequence = sequenceProvider.provideInputSequence(args);  
       try {  
-        isNonDecreasing = analyzer.checkIfNonDecreasing(inputSequence);
-        // no exceptions => we have result
-        isRepeatRequired = false;
-        if (isNonDecreasing) {
+        if (analyzer.checkIfNonDecreasing(inputSequence)) {
           System.out.println("Sequence is non-decreasing.");
         } else {
           System.out.println("Sequence is not non-decreasing.");
         }
+        return;
       } catch (Exception e) {
         System.out.println("Incorrect input arguments."); 
         System.out.println("Sequence must be integer and contain at least two numbers.");
-        if (reader.askRepeat()) {
-          inputSequence = reader.readSequence();
-          isRepeatRequired = true;
-        } else {
-          isRepeatRequired = false;
-        } 
-      }
-    }         
+      }  
+    } while (reader.askRepeat());        
   }
 }
