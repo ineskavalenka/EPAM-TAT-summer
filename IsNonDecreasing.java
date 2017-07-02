@@ -10,12 +10,10 @@ class IsNonDecreasing {
   public static void main(String[] args) {
     SequenceAnalyzer analyzer = new SequenceAnalyzer();
     ConsoleReader reader = new ConsoleReader();
-    String[] inputSequence = args;
-    do {
-      InputSequenceProvider sequenceProvider = new InputSequenceProvider();
-      String[] inputSequence = sequenceProvider.provideInputSequence(args);  
+    InputSequenceProvider sequenceProvider = new InputSequenceProvider();
+    do {  
       try {  
-        if (analyzer.checkIfNonDecreasing(inputSequence)) {
+        if (analyzer.checkIfNonDecreasing(sequenceProvider.provideInputSequence(args))) {
           System.out.println("Sequence is non-decreasing.");
         } else {
           System.out.println("Sequence is not non-decreasing.");
