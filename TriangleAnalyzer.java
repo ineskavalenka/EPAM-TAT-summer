@@ -6,7 +6,6 @@ import java.math.BigDecimal;
  * are sorted by nondecreasing.
  */
 class TriangleAnalyzer {
- 
   private BigDecimal sideA;
   private BigDecimal sideB;
   private BigDecimal sideC;
