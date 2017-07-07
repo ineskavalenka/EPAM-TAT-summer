@@ -12,7 +12,6 @@ class WhatTriangle {
         Triangle triangle = new Triangle(sequence);   
         TriangleAnalyzer analyzer = new TriangleAnalyzer(triangle);
         System.out.print("This triangle: ");
-   
         if(analyzer.checkIfEquilateral()) {
           System.out.println("is equilateral.");
         } else {
