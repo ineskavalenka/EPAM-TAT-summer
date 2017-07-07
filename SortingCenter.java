@@ -2,7 +2,6 @@
  * A collection of sort methods.
  */
 class SortingCenter {
-  
   /**
    * Nondecreasing selection sort (output[0] is min).
    */
