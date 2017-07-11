@@ -23,6 +23,6 @@ class IsNonDecreasing {
         System.out.println("Incorrect input arguments."); 
         System.out.println("Sequence must be integer and contain at least two numbers.");
       }  
-    } while (reader.askRepeat());        
+    } while (reader.askRepeatChecking("sequence"));        
   }
 }
