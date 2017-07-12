@@ -5,6 +5,7 @@ class IsoscelesTriangle extends Triangle {
   double repeatingSide;
   
   public IsoscelesTriangle(double[] sides) {
+    super(sides);
     if (!exists(sides)) {
       throw new IllegalArgumentException();
     }

@@ -17,8 +17,6 @@ class Triangle {
     if (!exists(sides)) {
       throw new IllegalArgumentException();
     }       
-    SortingCenter sorter = new SortingCenter();
-    sorter.selectionSort(sides);
   }
   
   /**

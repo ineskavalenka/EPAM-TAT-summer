@@ -4,6 +4,7 @@ class EquilateralTriangle extends Triangle {
   double repeatingSide;
   
   public EquilateralTriangle(double[] sides) {
+    super(sides);
     if (!exists(sides)) {
       throw new IllegalArgumentException();
     }
