@@ -5,6 +5,7 @@ import java.math.BigDecimal;
  */
 class EquilateralTriangle extends Triangle {
   double repeatingSide;
+  private String type = new String("equilateral");
   
   /**
    * EquilateralTriangle constructor.

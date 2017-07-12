@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 class IsoscelesTriangle extends Triangle {
   double singleSide;
   double repeatingSide;
+  private String type = new String("isosceles");
   
   /**
    * IsoscelesTriangle constructor.

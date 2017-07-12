@@ -4,13 +4,12 @@
 class Triangle {
   final int NUMBER_OF_SIDES = 3;
   private double[] sides = new double[NUMBER_OF_SIDES];
-  
+  private String type = new String("regular");
   /**
    * Triangle constructor; makes a triangle from the sequence of its sides.
    *
    * @param sides a sequence of triangle sides
    * @throws IllegalArgumentException if the sequence has not three sides.
-   * @throws NumberFormatException if sides are not numbers.
    */
   public Triangle(double[] sides) {
     if (!exists(sides)) {
@@ -47,5 +46,14 @@ class Triangle {
       return false;
     }
     return true;
+  }
+  
+  /**
+   * Returns triangle type.
+   *
+   * @return triangle type.
+   */
+  public String toString() {
+    return type;
   }
 }
