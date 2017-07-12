@@ -15,22 +15,24 @@ class WhatTriangle {
         for (int i=0; i < NUMBER_OF_SIDES; i++) {
           sides[i] = Double.parseDouble(sequence[i]); 
         }
-        
-        Triangle triangle = new Triangle(sides);   
-        TriangleAnalyzer triangleAnalyzer = new TriangleAnalyzer(triangle);
-        System.out.print("This triangle: ");
-        if(triangleAnalyzer.checkIfEquilateral()) {
-          System.out.println("is equilateral.");
-        } else {
-          if (triangleAnalyzer.checkIfRight()) {
-            System.out.println("is right.");
+                
+        try {
+          EquilateralTriangle equi = new EquilateralTriangle(sides);
+          System.out.println("equilateral created");
+        } catch (Exception a) {
+          try {
+            IsoscelesTriangle iso = new IsoscelesTriangle(sides);
+            System.out.println("isosceles created");
+          } catch (Exception b) {
+            try {
+              Triangle triangle = new Triangle(sides);   
+              System.out.println("is scalene.");
+            } catch (Exception c) {
+              System.out.println("does not exist");
+            }
           }
-          if (triangleAnalyzer.checkIfIsosceles()) {
-            System.out.println("is isosceles.");
-          } else if (triangleAnalyzer.checkIfScalene()) {
-            System.out.println("is scalene.");
-          }        
         }
+            
         return;
       } catch (Exception e) { 
         System.out.println("Incorrect input arguments.");

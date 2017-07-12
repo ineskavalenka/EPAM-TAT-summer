@@ -34,14 +34,14 @@ class Triangle {
     if (sides.length != NUMBER_OF_SIDES) {
       return false;
     }
-    if ((sides[0] + sides[1] - sides[2] <= 0) || (sides[1] + sides[2] - sides[0] <= 0) || 
-    (sides[0] + sides[2] - sides[1] <= 0)) {
-      return false;
-    }
     for (int i = 0; i < NUMBER_OF_SIDES; i++) {
       if (sides[i] <= 0) {
         return false;
       }
+    }
+    if ((sides[0] + sides[1] - sides[2] <= 0) || (sides[1] + sides[2] - sides[0] <= 0) || 
+    (sides[0] + sides[2] - sides[1] <= 0)) {
+      return false;
     }
     return true;
   }
