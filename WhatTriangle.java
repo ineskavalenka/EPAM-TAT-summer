@@ -25,7 +25,7 @@ class WhatTriangle {
           } catch (Exception b) {
             try {
               Triangle triangle = new Triangle(sides);   
-              System.out.println("The triangle is is scalene.");
+              System.out.println("The triangle is scalene.");
             } catch (Exception c) {
               System.out.println("The triangle does not exist.");
             }

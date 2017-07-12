@@ -7,9 +7,8 @@ class Triangle {
   
   /**
    * Triangle constructor; makes a triangle from the sequence of its sides.
-   * Sides of the created triangle are sorted by nondecreasing, even if the input sequence is not.
    *
-   * @param sidesSequence a sequence of triangle sides
+   * @param sides a sequence of triangle sides
    * @throws IllegalArgumentException if the sequence has not three sides.
    * @throws NumberFormatException if sides are not numbers.
    */
@@ -28,6 +27,12 @@ class Triangle {
     return sides;
   }
   
+  /**
+   * Determines the existence of a triangle with given sides.
+   *
+   * @return true if the triangle exists,
+   *         false if not.
+   */
   public boolean exists(double[] sides) {
     if (sides.length != NUMBER_OF_SIDES) {
       return false;

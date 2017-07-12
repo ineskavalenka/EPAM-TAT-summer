@@ -1,8 +1,16 @@
 import java.math.BigDecimal;
 
+/**
+ * Describes equilateral triangles.
+ */
 class EquilateralTriangle extends Triangle {
   double repeatingSide;
   
+  /**
+   * EquilateralTriangle constructor.
+   *
+   * @throws IllegalArgumentException if the triangle can't exist.
+   */
   public EquilateralTriangle(double[] sides) {
     super(sides);
     if (!exists(sides)) {
@@ -11,6 +19,12 @@ class EquilateralTriangle extends Triangle {
     repeatingSide = sides[0];
   }
   
+  /**
+   * Determines the existence of an equilateral triangle with given sides.
+   *
+   * @return true if the triangle exists and is equilateral,
+   *         false if not.
+   */
   public boolean exists(double[] sides) {
     if (!super.exists(sides)) {
       return false;

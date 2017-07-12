@@ -1,9 +1,17 @@
 import java.math.BigDecimal;
 
+/**
+ * Describes isosceles triangles.
+ */
 class IsoscelesTriangle extends Triangle {
   double singleSide;
   double repeatingSide;
   
+  /**
+   * IsoscelesTriangle constructor.
+   *
+   * @throws IllegalArgumentException if the triangle can't exist.
+   */
   public IsoscelesTriangle(double[] sides) {
     super(sides);
     if (!exists(sides)) {
@@ -26,6 +34,12 @@ class IsoscelesTriangle extends Triangle {
     }
   }
   
+  /**
+   * Determines the existence of an isosceles triangle with given sides.
+   *
+   * @return true if the triangle exists and is isosceles,
+   *         false if not.
+   */
   public boolean exists(double[] sides) {
     if (!super.exists(sides)) {
       return false;
