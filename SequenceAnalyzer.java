@@ -29,9 +29,8 @@ class SequenceAnalyzer {
    * Determines the existence of a triangle with sides equal to sequence numbers.
    *
    * @param sequence a sequence to be analyzed;
-   * @return true if the sequence members can form triangle sides.
-   *         false if the sequence length is not equal to the NUMBER_OF_TRIANGLE_SIDES, 
-   *               or if some sequence members are non-positive. 
+   * @return true if the sequence members can form triangle sides,
+   *         false if not.
    * @throws NumberFormatException if some sequence members are not numbers.
    */  
   public boolean checkIfTriangleSides(String[] sequence) 
@@ -39,9 +38,13 @@ class SequenceAnalyzer {
     if (sequence.length != NUMBER_OF_TRIANGLE_SIDES) {
       return false;
     }
+    if ((Double.parseDouble(sequence[0]) + Double.parseDouble(sequence[1]) - 
+    Double.parseDouble(sequence[2])) <= 0) {
+      return false;
+    }
     for (int i = 0; i < sequence.length; i++) {
       if (Double.parseDouble(sequence[i]) <= 0) {
-      return false;
+        return false;
       }
     }
     return true;

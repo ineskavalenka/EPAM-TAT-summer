@@ -23,7 +23,8 @@ class TriangleAnalyzer {
    * @return true if yes, false if no.
    */
   public boolean checkIfEquilateral() {
-    if (sideA.equals(sideB) && sideB.equals(sideC)) {
+    // we can do this because sideA <= sideB <= sideC
+    if (sideA.equals(sideC)) {
       return true;
     }
     return false;
@@ -59,7 +60,7 @@ class TriangleAnalyzer {
    * @return true if yes, false if no.
    */  
   public boolean checkIfRight() {
-    //we can do this because sideA <= sideB <= sideC
+    // we can do this because sideA <= sideB <= sideC
     if (sideA.pow(2).add(sideB.pow(2)).equals(sideC.pow(2))) {
       return true;
     }
