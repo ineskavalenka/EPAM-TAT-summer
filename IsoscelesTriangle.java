@@ -9,9 +9,9 @@ class IsoscelesTriangle extends Triangle {
     if (!exists(sides)) {
       throw new IllegalArgumentException();
     }
-    sideA = new BigDecimal(sides[0]);
-    sideB = new BigDecimal(sides[1]);
-    sideC = new BigDecimal(sides[2]);
+    BigDecimal sideA = new BigDecimal(sides[0]);
+    BigDecimal sideB = new BigDecimal(sides[1]);
+    BigDecimal sideC = new BigDecimal(sides[2]);
     if (sideA.equals(sideB)) {
       singleSide = sides[2];
       repeatingSide = sides[0];
@@ -30,9 +30,9 @@ class IsoscelesTriangle extends Triangle {
     if (!super.exists(sides)) {
       return false;
     }  
-    sideA = new BigDecimal(sides[0]);
-    sideB = new BigDecimal(sides[1]);
-    sideC = new BigDecimal(sides[2]);
+    BigDecimal sideA = new BigDecimal(sides[0]);
+    BigDecimal sideB = new BigDecimal(sides[1]);
+    BigDecimal sideC = new BigDecimal(sides[2]);
     if (sideA.equals(sideB) || sideA.equals(sideC) || sideB.equals(sideC)) {
       return true;
     }

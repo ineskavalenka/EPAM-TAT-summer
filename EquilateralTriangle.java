@@ -8,16 +8,16 @@ class EquilateralTriangle extends Triangle {
     if (!exists(sides)) {
       throw new IllegalArgumentException();
     }
-      repeatingSide = sides[0];
+    repeatingSide = sides[0];
   }
   
   public boolean exists(double[] sides) {
     if (!super.exists(sides)) {
       return false;
     }  
-    sideA = new BigDecimal(sides[0]);
-    sideB = new BigDecimal(sides[1]);
-    sideC = new BigDecimal(sides[2]);
+    BigDecimal sideA = new BigDecimal(sides[0]);
+    BigDecimal sideB = new BigDecimal(sides[1]);
+    BigDecimal sideC = new BigDecimal(sides[2]);
     if (sideA.equals(sideB) && sideA.equals(sideC)) {
       return true;
     }

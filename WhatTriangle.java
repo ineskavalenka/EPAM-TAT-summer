@@ -14,25 +14,23 @@ class WhatTriangle {
         double sides[] = new double[NUMBER_OF_SIDES];
         for (int i=0; i < NUMBER_OF_SIDES; i++) {
           sides[i] = Double.parseDouble(sequence[i]); 
-        }
-                
+        }       
         try {
-          EquilateralTriangle equi = new EquilateralTriangle(sides);
-          System.out.println("equilateral created");
+          EquilateralTriangle triangle = new EquilateralTriangle(sides);
+          System.out.println("The triangle is equilateral.");
         } catch (Exception a) {
           try {
-            IsoscelesTriangle iso = new IsoscelesTriangle(sides);
-            System.out.println("isosceles created");
+            IsoscelesTriangle triangle = new IsoscelesTriangle(sides);
+            System.out.println("The triangle is isosceles.");
           } catch (Exception b) {
             try {
               Triangle triangle = new Triangle(sides);   
-              System.out.println("is scalene.");
+              System.out.println("The triangle is is scalene.");
             } catch (Exception c) {
-              System.out.println("does not exist");
+              System.out.println("The triangle does not exist.");
             }
           }
-        }
-            
+        }  
         return;
       } catch (Exception e) { 
         System.out.println("Incorrect input arguments.");
