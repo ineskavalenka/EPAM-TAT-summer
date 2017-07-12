@@ -10,13 +10,7 @@ class WhatTriangle {
     InputSequenceProvider sequenceProvider = new InputSequenceProvider(args);      
     do {  
       try {
-        String[] sequence = sequenceProvider.provideInputTriangle();
-        
-        SequenceAnalyzer sequenceAnalyzer = new SequenceAnalyzer();
-        if (!sequenceAnalyzer.checkIfTriangleSides(sequence)) {
-          throw new IllegalArgumentException();
-        }
-        
+        String[] sequence = sequenceProvider.provideInputTriangle();       
         double sides[] = new double[NUMBER_OF_SIDES];
         for (int i=0; i < NUMBER_OF_SIDES; i++) {
           sides[i] = Double.parseDouble(sequence[i]); 
