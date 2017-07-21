@@ -19,16 +19,18 @@ class WhatTriangle {
           sides[i] = new BigDecimal(Double.parseDouble(sequence[i])); 
         }       
         
-        Chain c1 = new EquilateralProcessor();
-    		Chain c2 = new IsoscelesProcessor();
-    		Chain c3 = new TriangleProcessor();
-    		Chain c4 = new  WrongTriangleProcessor();
-    		c1.setNext(c2);
-    		c2.setNext(c3);
-        c3.setNext(c4);
+        Chain equilateral = new EquilateralTriangleBuilder();
+    		Chain isosceles = new IsoscelesTriangleBuilder();
+    		Chain regular = new TriangleBuilder();
+   // 		Chain wrong = new WrongTriangleProcessor();
+    		equilateral.setNext(isosceles);
+    		isosceles.setNext(regular);
+      //  regular.setNext(wrong);
     
 		//calling chain of responsibility
-		c1.process(sides);
+		    Triangle triangle = equilateral.build(sides);
+        System.out.println(triangle.toString());
+        
         return;
       } catch (Exception e) { 
         System.out.println("Incorrect input arguments.");

@@ -7,7 +7,7 @@ class WrongTriangleProcessor implements Chain {
 		nextInChain = c;
 	}
 	
- 	public void process(BigDecimal[] sides) {
+ 	public void build(BigDecimal[] sides) {
 		System.out.println("The triangle does not exist.");
 	}
 }
