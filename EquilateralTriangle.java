@@ -33,9 +33,6 @@ class EquilateralTriangle extends Triangle {
     BigDecimal sideA = new BigDecimal(sides[0]);
     BigDecimal sideB = new BigDecimal(sides[1]);
     BigDecimal sideC = new BigDecimal(sides[2]);
-    if (sideA.equals(sideB) && sideA.equals(sideC)) {
-      return true;
-    }
-    return false;    
+    return (sideA.equals(sideB) && sideA.equals(sideC));    
   }
 }
