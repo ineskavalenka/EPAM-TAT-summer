@@ -4,7 +4,7 @@ import java.math.BigDecimal;
  * Describes equilateral triangles.
  */
 class EquilateralTriangle extends Triangle {
-  double repeatingSide;
+  double side;
   final String type = new String("equilateral");
   
   /**
@@ -17,7 +17,7 @@ class EquilateralTriangle extends Triangle {
     if (!exists(sides)) {
       throw new IllegalArgumentException();
     }
-    repeatingSide = sides[0];
+    side = sides[0];
   }
   
   /**
