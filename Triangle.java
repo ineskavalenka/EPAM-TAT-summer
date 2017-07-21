@@ -3,8 +3,8 @@
  */
 class Triangle {
   final int NUMBER_OF_SIDES = 3;
+  final String type = new String("regular");
   private double[] sides = new double[NUMBER_OF_SIDES];
-  private String type = new String("regular");
   /**
    * Triangle constructor; makes a triangle from the sequence of its sides.
    *
