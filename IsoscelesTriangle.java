@@ -4,8 +4,7 @@ import java.math.BigDecimal;
  * Describes isosceles triangles.
  */
 class IsoscelesTriangle extends Triangle {
-  double singleSide;
-  double repeatingSide;
+  int singleSideIndex;
   final String type = new String("isosceles");
   
   /**
@@ -13,25 +12,19 @@ class IsoscelesTriangle extends Triangle {
    *
    * @throws IllegalArgumentException if the triangle can't exist.
    */
-  public IsoscelesTriangle(double[] sides) {
+  public IsoscelesTriangle(BigDecimal[] sides) {
     super(sides);
     if (!exists(sides)) {
       throw new IllegalArgumentException();
     }
-    BigDecimal sideA = new BigDecimal(sides[0]);
-    BigDecimal sideB = new BigDecimal(sides[1]);
-    BigDecimal sideC = new BigDecimal(sides[2]);
-    if (sideA.equals(sideB)) {
-      singleSide = sides[2];
-      repeatingSide = sides[0];
+    if (sides[0].equals(sides[1])) {
+      singleSideIndex = 2;
     }
-    if (sideA.equals(sideC)) {
-      singleSide = sides[1];
-      repeatingSide = sides[0];
+    if (sides[0].equals(sides[2])) {
+      singleSideIndex = 1;
     }
-    if (sideB.equals(sideC)) {
-      singleSide = sides[0];
-      repeatingSide = sides[1];
+    if (sides[1].equals(sides[2])) {
+      singleSideIndex = 0;
     }
   }
   
@@ -41,14 +34,11 @@ class IsoscelesTriangle extends Triangle {
    * @return true if the triangle exists and is isosceles,
    *         false if not.
    */
-  public boolean exists(double[] sides) {
+  public boolean exists(BigDecimal[] sides) {
     if (!super.exists(sides)) {
       return false;
     }  
-    BigDecimal sideA = new BigDecimal(sides[0]);
-    BigDecimal sideB = new BigDecimal(sides[1]);
-    BigDecimal sideC = new BigDecimal(sides[2]);
-    if (sideA.equals(sideB) || sideA.equals(sideC) || sideB.equals(sideC)) {
+    if (sides[0].equals(sides[1]) || sides[0].equals(sides[2]) || sides[1].equals(sides[2])) {
       return true;
     }
     return false;    

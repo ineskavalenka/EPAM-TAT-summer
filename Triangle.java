@@ -1,17 +1,22 @@
+import java.math.BigDecimal;
+
 /**
  * Describes triangles with double sides.
  */
 class Triangle {
+  final BigDecimal ZERO = new BigDecimal(0);
+  final BigDecimal ONE = new BigDecimal(1);
   final int NUMBER_OF_SIDES = 3;
   final String type = new String("regular");
-  private double[] sides = new double[NUMBER_OF_SIDES];
+  //private double[] sides = new double[NUMBER_OF_SIDES];
+  private BigDecimal[] sides = new BigDecimal[NUMBER_OF_SIDES];
   /**
    * Triangle constructor; makes a triangle from the sequence of its sides.
    *
    * @param sides a sequence of triangle sides
    * @throws IllegalArgumentException if the sequence has not three sides.
    */
-  public Triangle(double[] sides) {
+  public Triangle(BigDecimal[] sides) {
     if (!exists(sides)) {
       throw new IllegalArgumentException();
     }       
@@ -22,7 +27,7 @@ class Triangle {
    *
    * @return the sequence of this.sides.
    */
-  public double[] getSides() {
+  public BigDecimal[] getSides() {
     return sides;
   }
   
@@ -32,17 +37,18 @@ class Triangle {
    * @return true if the triangle exists,
    *         false if not.
    */
-  public boolean exists(double[] sides) {
+  public boolean exists(BigDecimal[] sides) {
     if (sides.length != NUMBER_OF_SIDES) {
       return false;
     }
     for (int i = 0; i < NUMBER_OF_SIDES; i++) {
-      if (sides[i] <= 0) {
+      if (sides[i].compareTo(ZERO) != 1) {
         return false;
       }
     }
-    if ((sides[0] + sides[1] - sides[2] <= 0) || (sides[1] + sides[2] - sides[0] <= 0) || 
-    (sides[0] + sides[2] - sides[1] <= 0)) {
+    if ((sides[0].add(sides[1]).subtract(sides[2]).compareTo(ZERO) != 1) ||
+    (sides[1].add(sides[2]).subtract(sides[0]).compareTo(ZERO) != 1) || 
+    (sides[0].add(sides[2]).subtract(sides[1]).compareTo(ZERO) != 1)) {
       return false;
     }
     return true;

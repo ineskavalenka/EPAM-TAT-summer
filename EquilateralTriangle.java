@@ -4,7 +4,6 @@ import java.math.BigDecimal;
  * Describes equilateral triangles.
  */
 class EquilateralTriangle extends Triangle {
-  double side;
   final String type = new String("equilateral");
   
   /**
@@ -12,12 +11,11 @@ class EquilateralTriangle extends Triangle {
    *
    * @throws IllegalArgumentException if the triangle can't exist.
    */
-  public EquilateralTriangle(double[] sides) {
+  public EquilateralTriangle(BigDecimal[] sides) {
     super(sides);
     if (!exists(sides)) {
       throw new IllegalArgumentException();
     }
-    side = sides[0];
   }
   
   /**
@@ -26,13 +24,10 @@ class EquilateralTriangle extends Triangle {
    * @return true if the triangle exists and is equilateral,
    *         false if not.
    */
-  public boolean exists(double[] sides) {
+  public boolean exists(BigDecimal[] sides) {
     if (!super.exists(sides)) {
       return false;
     }  
-    BigDecimal sideA = new BigDecimal(sides[0]);
-    BigDecimal sideB = new BigDecimal(sides[1]);
-    BigDecimal sideC = new BigDecimal(sides[2]);
-    return (sideA.equals(sideB) && sideA.equals(sideC));    
+    return (sides[0].equals(sides[1]) && sides[0].equals(sides[2]));    
   }
 }

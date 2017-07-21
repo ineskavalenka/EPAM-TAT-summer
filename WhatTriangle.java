@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+
 /** 
  * Requests a triangle from console and determines it's type.
  * Outputs the results to the console.
@@ -11,9 +13,9 @@ class WhatTriangle {
     do {  
       try {
         String[] sequence = sequenceProvider.provideInputTriangle();       
-        double sides[] = new double[NUMBER_OF_SIDES];
+        BigDecimal sides[] = new BigDecimal[NUMBER_OF_SIDES];
         for (int i=0; i < NUMBER_OF_SIDES; i++) {
-          sides[i] = Double.parseDouble(sequence[i]); 
+          sides[i] = new BigDecimal(Double.parseDouble(sequence[i])); 
         }       
         try {
           EquilateralTriangle triangle = new EquilateralTriangle(sides);
