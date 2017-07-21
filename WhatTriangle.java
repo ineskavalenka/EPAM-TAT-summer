@@ -12,7 +12,6 @@ class WhatTriangle {
     InputSequenceProvider sequenceProvider = new InputSequenceProvider(args);      
     do {  
       try {
-      
         String[] sequence = sequenceProvider.provideInputTriangle();       
         BigDecimal sides[] = new BigDecimal[NUMBER_OF_SIDES];
         for (int i=0; i < NUMBER_OF_SIDES; i++) {
@@ -22,15 +21,13 @@ class WhatTriangle {
         Chain equilateral = new EquilateralTriangleBuilder();
     		Chain isosceles = new IsoscelesTriangleBuilder();
     		Chain regular = new TriangleBuilder();
-   // 		Chain wrong = new WrongTriangleProcessor();
+    		
     		equilateral.setNext(isosceles);
     		isosceles.setNext(regular);
-      //  regular.setNext(wrong);
     
-		//calling chain of responsibility
-		    Triangle triangle = equilateral.build(sides);
-        System.out.println(triangle.toString());
-        
+	    	// calling chain of responsibility
+        System.out.println(equilateral.build(sides).toString());
+
         return;
       } catch (Exception e) { 
         System.out.println("Incorrect input arguments.");

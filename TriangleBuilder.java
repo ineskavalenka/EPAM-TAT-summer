@@ -9,9 +9,13 @@ class TriangleBuilder implements Chain {
 	
  	public Triangle build(BigDecimal[] sides) {
 		try {
-		  return new Triangle(sides);
-		//  System.out.println("The triangle is scalene.");
-		} catch (Exception e) {
+		  System.out.println("Triangle builder");
+		//  return new Triangle(sides);
+		  Triangle triangle = new Triangle(sides); 
+		  System.out.println("Scalene Triangle has been built");
+		  return triangle;
+		} catch (IllegalArgumentException e) {
+		  System.out.println("Triangle builder caught exception");
 			return nextInChain.build(sides);
 		}
 	}

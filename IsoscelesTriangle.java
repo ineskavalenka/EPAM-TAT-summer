@@ -5,7 +5,6 @@ import java.math.BigDecimal;
  */
 class IsoscelesTriangle extends Triangle {
   int singleSideIndex;
-  final String type = new String("isosceles");
   
   /**
    * IsoscelesTriangle constructor.
@@ -14,6 +13,7 @@ class IsoscelesTriangle extends Triangle {
    */
   public IsoscelesTriangle(BigDecimal[] sides) {
     super(sides);
+    type = new String("isosceles");
     if (!exists(sides)) {
       throw new IllegalArgumentException();
     }
@@ -42,5 +42,14 @@ class IsoscelesTriangle extends Triangle {
       return true;
     }
     return false;    
+  }
+  /**
+   * Returns triangle type.
+   *
+   * @return triangle type.
+   */
+  @Override
+  public String toString() {
+    return type;
   }
 }

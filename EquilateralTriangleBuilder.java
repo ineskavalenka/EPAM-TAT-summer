@@ -9,9 +9,13 @@ class EquilateralTriangleBuilder implements Chain {
 	
 	public Triangle build(BigDecimal[] sides) {
 		try {
-		  return new EquilateralTriangle(sides);
-		//  System.out.println("The triangle is equilateral.");
-		} catch (Exception e) {
+		  System.out.println("Equilateral Triangle builder");
+		//  return new EquilateralTriangle(sides);
+		  EquilateralTriangle triangle = new EquilateralTriangle(sides); 
+		  System.out.println("Equilateral Triangle has been built");
+		  return triangle;
+		} catch (IllegalArgumentException e) {
+		  System.out.println("Equilateral Triangle builder caught exception");
 			return nextInChain.build(sides);
 		}
 	}

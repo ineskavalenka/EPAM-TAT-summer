@@ -9,9 +9,13 @@ class IsoscelesTriangleBuilder implements Chain {
  
  	public Triangle build(BigDecimal[] sides) {
 		try {
-		  return new IsoscelesTriangle(sides);
-		//  System.out.println("The triangle is isosceles.");
-		} catch (Exception e) {
+		  System.out.println("Isosceles Triangle builder");
+		//  return new IsoscelesTriangle(sides);
+		  IsoscelesTriangle triangle = new IsoscelesTriangle(sides);
+		  System.out.println("Isosceles Triangle has been built"); 
+		  return triangle;
+		} catch (IllegalArgumentException e) {
+		  System.out.println("Isosceles Triangle builder caught exception");
 			return nextInChain.build(sides);
 		}
 	}

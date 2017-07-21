@@ -4,7 +4,6 @@ import java.math.BigDecimal;
  * Describes equilateral triangles.
  */
 class EquilateralTriangle extends Triangle {
-  final String type = new String("equilateral");
   
   /**
    * EquilateralTriangle constructor.
@@ -13,6 +12,7 @@ class EquilateralTriangle extends Triangle {
    */
   public EquilateralTriangle(BigDecimal[] sides) {
     super(sides);
+    type = new String("equilateral");
     if (!exists(sides)) {
       throw new IllegalArgumentException();
     }
@@ -29,5 +29,14 @@ class EquilateralTriangle extends Triangle {
       return false;
     }  
     return (sides[0].equals(sides[1]) && sides[0].equals(sides[2]));    
+  }
+  /**
+   * Returns triangle type.
+   *
+   * @return triangle type.
+   */
+  @Override
+  public String toString() {
+    return type;
   }
 }
