@@ -20,43 +20,15 @@ class WhatTriangle {
         }       
         
         Chain c1 = new EquilateralProcessor();
-		Chain c2 = new IsoscelesProcessor();
-		Chain c3 = new TriangleProcessor();
-		Chain c4 = new  WrongTriangleProcessor();
-		c1.setNext(c2);
-		c2.setNext(c3);
-    c3.setNext(c4);
+    		Chain c2 = new IsoscelesProcessor();
+    		Chain c3 = new TriangleProcessor();
+    		Chain c4 = new  WrongTriangleProcessor();
+    		c1.setNext(c2);
+    		c2.setNext(c3);
+        c3.setNext(c4);
     
 		//calling chain of responsibility
 		c1.process(sides);
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        /*
-        try {
-          EquilateralTriangle triangle = new EquilateralTriangle(sides);
-          System.out.println("The triangle is equilateral.");
-        } catch (Exception a) {
-          try {
-            IsoscelesTriangle triangle = new IsoscelesTriangle(sides);
-            System.out.println("The triangle is isosceles.");
-          } catch (Exception b) {
-            try {
-              Triangle triangle = new Triangle(sides);   
-              System.out.println("The triangle is scalene.");
-            } catch (Exception c) {
-              System.out.println("The triangle does not exist.");
-            }
-          }
-        }
-        */ 
         return;
       } catch (Exception e) { 
         System.out.println("Incorrect input arguments.");
