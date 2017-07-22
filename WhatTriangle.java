@@ -31,7 +31,7 @@ class WhatTriangle {
         System.out.println("A triangle must have 3 sides.");
       } catch (NullPointerException e) { 
         System.out.println("The triangle does not exist (S <= 0).");
-     }
+      }
     } while (reader.askRepeatChecking("triangle"));        
   }
 }
