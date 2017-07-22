@@ -1,21 +1,25 @@
 import java.math.BigDecimal;
 
-class TriangleBuilder implements Chain {
-  private Chain nextInChain;
+/**
+ * Builds triangles.
+ */
+class TriangleBuilder implements BuilderChain {
+  private BuilderChain nextInChain;
 
-	public void setNext(Chain c) {
+  /**
+   * Sets next object in the responsibility chain.
+   */
+	public void setNext(BuilderChain c) {
 		nextInChain = c;
 	}
-	
+
+	/**
+	 * Builds triangles.
+	 */	
  	public Triangle build(BigDecimal[] sides) {
 		try {
-		  System.out.println("Triangle builder");
-		//  return new Triangle(sides);
-		  Triangle triangle = new Triangle(sides); 
-		  System.out.println("Scalene Triangle has been built");
-		  return triangle;
+		  return new Triangle(sides);
 		} catch (IllegalArgumentException e) {
-		  System.out.println("Triangle builder caught exception");
 			return nextInChain.build(sides);
 		}
 	}

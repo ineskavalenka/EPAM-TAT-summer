@@ -30,6 +30,7 @@ class EquilateralTriangle extends Triangle {
     }  
     return (sides[0].equals(sides[1]) && sides[0].equals(sides[2]));    
   }
+  
   /**
    * Returns triangle type.
    *

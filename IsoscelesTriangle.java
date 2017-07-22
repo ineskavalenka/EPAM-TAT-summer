@@ -43,6 +43,7 @@ class IsoscelesTriangle extends Triangle {
     }
     return false;    
   }
+  
   /**
    * Returns triangle type.
    *

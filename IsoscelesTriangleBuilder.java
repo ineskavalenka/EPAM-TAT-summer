@@ -1,21 +1,25 @@
 import java.math.BigDecimal;
 
-class IsoscelesTriangleBuilder implements Chain {
-  private Chain nextInChain;
-
-	public void setNext(Chain c) {
+/**
+ * Builds isosceles triangles.
+ */
+class IsoscelesTriangleBuilder implements BuilderChain {
+  private BuilderChain nextInChain;
+  
+  /**
+   * Sets next object in the responsibility chain.
+   */
+	public void setNext(BuilderChain c) {
 		nextInChain = c;
 	}
- 
+
+	/**
+	 * Builds isosceles triangles.
+	 */
  	public Triangle build(BigDecimal[] sides) {
 		try {
-		  System.out.println("Isosceles Triangle builder");
-		//  return new IsoscelesTriangle(sides);
-		  IsoscelesTriangle triangle = new IsoscelesTriangle(sides);
-		  System.out.println("Isosceles Triangle has been built"); 
-		  return triangle;
+		  return new IsoscelesTriangle(sides);
 		} catch (IllegalArgumentException e) {
-		  System.out.println("Isosceles Triangle builder caught exception");
 			return nextInChain.build(sides);
 		}
 	}

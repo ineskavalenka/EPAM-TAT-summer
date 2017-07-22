@@ -13,27 +13,25 @@ class WhatTriangle {
     do {  
       try {
         String[] sequence = sequenceProvider.provideInputTriangle();       
-        BigDecimal sides[] = new BigDecimal[NUMBER_OF_SIDES];
-        for (int i=0; i < NUMBER_OF_SIDES; i++) {
+        BigDecimal sides[] = new BigDecimal[sequence.length];
+        for (int i=0; i < sequence.length; i++) {
           sides[i] = new BigDecimal(Double.parseDouble(sequence[i])); 
-        }       
-        
-        Chain equilateral = new EquilateralTriangleBuilder();
-    		Chain isosceles = new IsoscelesTriangleBuilder();
-    		Chain regular = new TriangleBuilder();
-    		
-    		equilateral.setNext(isosceles);
-    		isosceles.setNext(regular);
-    
-	    	// calling chain of responsibility
-        System.out.println(equilateral.build(sides).toString());
-
+        }      
+        BuilderChain equilateral = new EquilateralTriangleBuilder();
+        BuilderChain isosceles = new IsoscelesTriangleBuilder();
+        BuilderChain regular = new TriangleBuilder();
+        equilateral.setNext(isosceles);
+        isosceles.setNext(regular);
+        System.out.println("The triangle is " + equilateral.build(sides).toString() + ".");
         return;
-      } catch (Exception e) { 
+      } catch (NumberFormatException e) {
         System.out.println("Incorrect input arguments.");
-        System.out.println("The sequence of sides should contain three positive numbers."); 
-      } 
-   
+        System.out.println("The sequence of sides should contain three positive numbers.");  
+      } catch (IllegalArgumentException e) {
+        System.out.println("A triangle must have 3 sides.");
+      } catch (NullPointerException e) { 
+        System.out.println("The triangle does not exist (S <= 0).");
+     }
     } while (reader.askRepeatChecking("triangle"));        
   }
 }

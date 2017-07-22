@@ -1,21 +1,25 @@
 import java.math.BigDecimal;
 
-class EquilateralTriangleBuilder implements Chain {
-  private Chain nextInChain;
+/**
+ * Builds equilateral triangles.
+ */
+class EquilateralTriangleBuilder implements BuilderChain {
+  private BuilderChain nextInChain;
 
-	public void setNext(Chain c) {
+  /**
+   * Sets next object in the responsibility chain.
+   */
+	public void setNext(BuilderChain c) {
 		nextInChain = c;
 	}
-	
+
+	/**
+	 * Builds equilateral triangles.
+	 */	
 	public Triangle build(BigDecimal[] sides) {
 		try {
-		  System.out.println("Equilateral Triangle builder");
-		//  return new EquilateralTriangle(sides);
-		  EquilateralTriangle triangle = new EquilateralTriangle(sides); 
-		  System.out.println("Equilateral Triangle has been built");
-		  return triangle;
+		  return new EquilateralTriangle(sides);
 		} catch (IllegalArgumentException e) {
-		  System.out.println("Equilateral Triangle builder caught exception");
 			return nextInChain.build(sides);
 		}
 	}
