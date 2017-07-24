@@ -16,6 +16,7 @@ class Triangle {
    */
   public Triangle(BigDecimal[] sides) {
     if (!exists(sides)) {
+      throw new IllegalArgumentException();
     }   
     this.sides = sides;    
   }
