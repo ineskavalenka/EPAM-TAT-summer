@@ -12,12 +12,10 @@ class Triangle {
    * Triangle constructor; makes a triangle from the sequence of its sides.
    *
    * @param sides a sequence of triangle sides
-   * @throws NullPointerException if the triangle's square is <= 0 (triangle does not exist).
    * @throws IllegalArgumentException if the sequence has not three sides. 
    */
   public Triangle(BigDecimal[] sides) {
     if (!exists(sides)) {
-      throw new NullPointerException();
     }   
     this.sides = sides;    
   }
