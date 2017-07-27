@@ -1,1 +1,0 @@
-# EPAM-TAT-summer
