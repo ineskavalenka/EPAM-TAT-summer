@@ -1,1 +1,1 @@
-# EPAM-TAT-summer
+# EPAM-TAT-summer homework tasks
