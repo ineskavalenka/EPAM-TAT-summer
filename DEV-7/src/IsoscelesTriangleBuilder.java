@@ -3,24 +3,33 @@ import java.math.BigDecimal;
 /**
  * Builds isosceles triangles.
  */
-class IsoscelesTriangleBuilder implements BuilderChain {
-  private BuilderChain nextInChain;
+class IsoscelesTriangleBuilder extends BuilderChain {
 
   /**
-   * Sets next object in the responsibility chain.
+   * IsoscelesTriangleBuilder constructor.
+   *
+   * @param nextInChain next object in the responsibility chain.
    */
-  public void setNext(BuilderChain next) {
-    nextInChain = next;
+  public IsoscelesTriangleBuilder(BuilderChain nextInChain) {
+    this.nextInChain = nextInChain;
   }
 
   /**
    * Builds isosceles triangles.
+   *
+   * @throws IllegalArgumentException if the triangle can't be built, and .this is the last
+   *                                  object in the chain of responsibility.
+   * @param sides the sides of the triangle to be built.
+   * @return the triangle that was built.
    */
-  public Triangle build(BigDecimal[] sides) {
+  public Triangle build(BigDecimal[] sides) throws IllegalArgumentException {
     try {
       return new IsoscelesTriangle(sides);
-      } catch (IllegalArgumentException e) {
-      return nextInChain.build(sides);
+    } catch (Exception e) {
+      if (nextInChain != null) {
+        return nextInChain.build(sides);
+      }
+      throw e;
     }
   }
 }

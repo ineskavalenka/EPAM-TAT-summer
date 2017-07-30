@@ -17,12 +17,9 @@ class WhatTriangle {
         for (int i=0; i < sequence.length; i++) {
           sides[i] = new BigDecimal(Double.parseDouble(sequence[i]));
         }
-        BuilderChain equilateral = new EquilateralTriangleBuilder();
-        BuilderChain isosceles = new IsoscelesTriangleBuilder();
-        BuilderChain regular = new TriangleBuilder();
-        equilateral.setNext(isosceles);
-        isosceles.setNext(regular);
-        System.out.println("The triangle is " + equilateral.build(sides).toString() + ".");
+        BuilderChain builderChain = new EquilateralTriangleBuilder(
+          new IsoscelesTriangleBuilder(new TriangleBuilder(null)));
+        System.out.println("The triangle is " + builderChain.build(sides).toString() + ".");
         return;
       } catch (Exception e) {
         System.out.println(e.getMessage());

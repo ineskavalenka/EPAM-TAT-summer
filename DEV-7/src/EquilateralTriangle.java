@@ -4,7 +4,7 @@ import java.math.BigDecimal;
  * Describes equilateral triangles.
  */
 class EquilateralTriangle extends Triangle {
-  final String type = new String("equilateral");
+  final String type = "equilateral";
 
   /**
    * EquilateralTriangle constructor.
@@ -19,8 +19,8 @@ class EquilateralTriangle extends Triangle {
   /**
    * Determines the existence of an equilateral triangle with given sides.
    *
-   * @return true if the triangle exists and is equilateral,
-   *         false if not.
+   * @throws IllegalArgumentException if the triangle can't exist. The exception contains
+   *                                  a message describing why the triangle can't exist.
    */
   public void exists(BigDecimal[] sides) {
     super.triangleExists(sides);

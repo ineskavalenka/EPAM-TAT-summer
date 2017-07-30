@@ -4,7 +4,7 @@ import java.math.BigDecimal;
  * Describes isosceles triangles.
  */
 class IsoscelesTriangle extends Triangle {
-  final String type = new String("isosceles");
+  final String type = "isosceles";
 
   /**
    * IsoscelesTriangle constructor.
@@ -18,7 +18,9 @@ class IsoscelesTriangle extends Triangle {
 
   /**
    * Determines the existence of an isosceles triangle with given sides.
-   * @throws
+   *
+   * @throws IllegalArgumentException if the triangle can't exist. The exception contains
+   *                                  a message describing why the triangle can't exist.
    */
   public void exists(BigDecimal[] sides) {
     super.triangleExists(sides);

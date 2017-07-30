@@ -5,7 +5,7 @@ import java.math.BigDecimal;
  */
 class Triangle {
   final int NUMBER_OF_SIDES = 3;
-  final String type = new String("regular");
+  final String type = "regular";
   private BigDecimal[] sides = new BigDecimal[NUMBER_OF_SIDES];
 
   /**
@@ -40,7 +40,7 @@ class Triangle {
     }
     for (int i = 0; i < NUMBER_OF_SIDES; i++) {
       if (sides[i].compareTo(BigDecimal.ZERO) != 1) {
-        throw new IllegalArgumentException("Triangle sides must be numbers.");
+        throw new IllegalArgumentException("Triangle sides must be positive numbers.");
       }
     }
     if ((sides[0].add(sides[1]).subtract(sides[2]).compareTo(BigDecimal.ZERO) != 1) ||
