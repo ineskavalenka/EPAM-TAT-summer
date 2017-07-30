@@ -2,7 +2,7 @@ public class ArrayList {
   final int INIT_LENGTH = 10;
   final int ADDITIONAL_MEMORY_LENGTH = 0;
   int[] array = new int[INIT_LENGTH];
-  ;
+  
   int size = 0;
 
   public void ArrayList() {
@@ -60,7 +60,7 @@ public class ArrayList {
     validateIndexForAdding(insertIndex);
     int memoryDifference = array.length - (size + insert.length);
     if (memoryDifference < 0) {
-      AllocateMemory(memoryDifference);
+      allocateMemory(memoryDifference);
     }
     for (int i = size - 1; i >= 0; i--) {
       array[i + insert.length] = array[i];
@@ -71,7 +71,7 @@ public class ArrayList {
     size = size + insert.length;
   }
 
-  private void AllocateMemory(int memoryDifference) {
+  private void allocateMemory(int memoryDifference) {
     int newLength = calculateNewMemoryLength(memoryDifference);
     int[] newArray = new int[newLength];
     for (int i = 0; i < array.length; i++) {
