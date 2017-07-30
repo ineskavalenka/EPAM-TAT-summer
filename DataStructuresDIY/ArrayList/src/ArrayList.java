@@ -1,7 +1,8 @@
 public class ArrayList {
   final int INIT_LENGTH = 10;
   final int ADDITIONAL_MEMORY_LENGTH = 0;
-  int[] array = new int[INIT_LENGTH];;
+  int[] array = new int[INIT_LENGTH];
+  ;
   int size = 0;
 
   public void ArrayList() {
@@ -14,19 +15,19 @@ public class ArrayList {
   }
 
   private void validateIndexForAdding(int index) {
-    if ((index>size)||(index<0)) {
+    if ((index > size) || (index < 0)) {
       throw new ArrayIndexOutOfBoundsException();
     }
   }
 
   private void validateIndexForRemoving(int index) {
-    if ((index>=size)||(index<0)) {
+    if ((index >= size) || (index < 0)) {
       throw new ArrayIndexOutOfBoundsException();
     }
   }
 
   private void validateNumberOfElementsForRemoving(int numberOfElements) {
-    if ((numberOfElements>size)||(numberOfElements<=0)) {
+    if ((numberOfElements > size) || (numberOfElements <= 0)) {
       throw new IllegalArgumentException();
     }
   }
@@ -34,7 +35,7 @@ public class ArrayList {
   private void validateRemoving(int numberOfElements, int index) {
     validateIndexForRemoving(index);
     validateNumberOfElementsForRemoving(numberOfElements);
-    if(index + numberOfElements > size) {
+    if (index + numberOfElements > size) {
       throw new ArrayIndexOutOfBoundsException();
     }
   }
@@ -52,7 +53,7 @@ public class ArrayList {
     validateIndexForAdding(insertIndex);
     int[] temp = new int[1];
     temp[0] = insertElement;
-    add(temp,insertIndex);
+    add(temp, insertIndex);
   }
 
   public void add(int[] insert, int insertIndex) throws ArrayIndexOutOfBoundsException {
@@ -61,7 +62,7 @@ public class ArrayList {
     if (memoryDifference < 0) {
       AllocateMemory(memoryDifference);
     }
-    for (int i = size-1; (i>=0); i--) {
+    for (int i = size - 1; i >= 0; i--) {
       array[i + insert.length] = array[i];
     }
     for (int j = 0; j < insert.length; j++) {
@@ -80,15 +81,15 @@ public class ArrayList {
   }
 
   private int calculateNewMemoryLength(int memoryDifference) {
-    return (size + (- memoryDifference * 2) + ADDITIONAL_MEMORY_LENGTH);
+    return (size + (-memoryDifference * 2) + ADDITIONAL_MEMORY_LENGTH);
   }
 
   public void remove(int numberOfElements, int removeIndex) throws
           ArrayIndexOutOfBoundsException, IllegalArgumentException {
     validateRemoving(numberOfElements, removeIndex);
 
-    for (int j = 0; (j < numberOfElements)&&(j+removeIndex < size); j++) {
-      array[j+removeIndex] = array[j + removeIndex + numberOfElements];
+    for (int j = 0; (j < numberOfElements) && (j + removeIndex < size); j++) {
+      array[j + removeIndex] = array[j + removeIndex + numberOfElements];
     }
     size = size - numberOfElements;
   }
