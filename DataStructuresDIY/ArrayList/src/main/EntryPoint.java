@@ -1,3 +1,5 @@
+package main;
+
 public class EntryPoint {
   public static void print(ArrayList arrayList) {
     for (int i = 0; i < arrayList.length(); i++) {

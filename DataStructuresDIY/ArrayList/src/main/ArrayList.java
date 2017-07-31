@@ -1,3 +1,5 @@
+package main;
+
 public class ArrayList {
   final int INIT_LENGTH = 10;
   final int ADDITIONAL_MEMORY_LENGTH = 0;
@@ -12,6 +14,17 @@ public class ArrayList {
   public void ArrayList() {
     int[] array = new int[INIT_LENGTH];
     dataSize = 0;
+  }
+
+  /**
+   * ArrayList constructor.
+-  * Initializes an array that has the same elements as the argument.
+   *
+   * @param initArray initialization array.
+   */
+  public void ArrayList(int[] initArray) {
+    int[] array = new int[initArray.length];
+    dataSize = initArray.length;
   }
 
   /**
