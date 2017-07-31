@@ -28,7 +28,20 @@ public class ArrayTest {
       to not empty  array
 
   insert(int element, int index):
-    (correctindex, index < 0, index > size, index = size)
+      index < 0
+      very beginning
+      middle
+      close to the end
+      arraylist.length()
+      > arraylist.length()
+
+  insert(int[] array, int index):
+      index < 0
+      very beginning
+      middle
+      close to the end
+      arraylist.length()
+      > arraylist.length()
 
   when memory allocates
     1) add to empty < INIT_LENGTH - no allocation
@@ -49,6 +62,6 @@ public class ArrayTest {
       munberOfElem = size
       munberOfElem > size
       if index close to the end of array => some of elem may be out of bounds
-        same index, different numberOfElem (insertion.last = array.length, <, >)
+        same index, different numberOfElem (insertion.last = arraylist.length(), <, >)
    */
 }

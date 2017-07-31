@@ -36,7 +36,19 @@ public class ArrayList {
     return dataSize;
   }
 
-  //to do: element setter.
+  /**
+   * Element setter.
+   *
+   * @param element new value of the array[index].
+   * @param index
+   * @throws ArrayIndexOutOfBoundsException
+   */
+  public void setElement(int element, int index) throws ArrayIndexOutOfBoundsException {
+    if ((index >= dataSize) || (index < 0)) {
+      throw new ArrayIndexOutOfBoundsException();
+    }
+    array[index] = element;
+  }
 
   /**
    * Element getter.
