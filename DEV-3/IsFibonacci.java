@@ -7,12 +7,23 @@
  * Program exited.
  */
 class IsFibonacci {
-  public static boolean isNumberFibSeq(int num) {
-    if (num == 0 || num == 1) {
+  public static boolean isNumberFibonacci(int numberToCheck) {
+    if (numberToCheck == 0 || numberToCheck == 1) {
      return true;
     } else {
-      // 5n^2 - 4 OR 5n^2 + 4 should be perfect squares
-      return isPerfectSquare(5*num*num - 4) || isPerfectSquare(5*num*num + 4);
+      int firstInSequence = 1;
+      int secondInSequence = 1;
+      int thirdInSequence = 2;
+      for (int i = 1; thirdInSequence <= numberToCheck; i++) {
+        int temp = firstInSequence + secondInSequence;
+        firstInSequence = secondInSequence;
+        secondInSequence = thirdInSequence;
+        thirdInSequence = temp;			
+        if (thirdInSequence  == numberToCheck) {
+          return true;
+        }			
+      }
+      return false;
     }
   }
   
@@ -27,7 +38,7 @@ class IsFibonacci {
       if (num < 0) {
         throw new Exception();
       }
-      if (isNumberFibSeq(num)) {
+      if (isNumberFibonacci(num)) {
         System.out.println(num + " is Fibonacci.");
       } else {
         System.out.println(num + " is not Fibonacci.");
