@@ -17,23 +17,23 @@ public class EntryPoint {
         addArray[i] = i * 10 + 2;
       }
 
-      arrayList.add(addArray, 0);
+      arrayList.insert(addArray, 0);
       print(arrayList);
 
       for (int i = 0; i < addArray.length; i++) {
         addArray[i] = i * 10 + 3;
       }
 
-      arrayList.add(addArray, 3);
+      arrayList.insert(addArray, 3);
       print(arrayList);
 
-      arrayList.add(4, 3);
+      arrayList.insert(4, 3);
       print(arrayList);
 
       arrayList.remove(4, 3);
       print(arrayList);
 
-      arrayList.add(4, 7);
+      arrayList.insert(4, 7);
       print(arrayList);
 
       arrayList.remove(7);

@@ -2,75 +2,109 @@ public class ArrayList {
   final int INIT_LENGTH = 10;
   final int ADDITIONAL_MEMORY_LENGTH = 0;
   int[] array = new int[INIT_LENGTH];
-  
-  int size = 0;
 
+  int dataSize = 0;
+
+  /**
+   * ArrayList constructor.
+   * Initializes an empty array.
+   */
   public void ArrayList() {
     int[] array = new int[INIT_LENGTH];
-    size = 0;
+    dataSize = 0;
   }
 
+  /**
+   * ArrayList length getter.
+   *
+   * @return array length.
+   */
   public int length() {
-    return size;
+    return dataSize;
   }
 
-  private void validateIndexForAdding(int index) {
-    if ((index > size) || (index < 0)) {
-      throw new ArrayIndexOutOfBoundsException();
-    }
-  }
-
-  private void validateIndexForRemoving(int index) {
-    if ((index >= size) || (index < 0)) {
-      throw new ArrayIndexOutOfBoundsException();
-    }
-  }
-
-  private void validateNumberOfElementsForRemoving(int numberOfElements) {
-    if ((numberOfElements > size) || (numberOfElements <= 0)) {
-      throw new IllegalArgumentException();
-    }
-  }
-
-  private void validateRemoving(int numberOfElements, int index) {
-    validateIndexForRemoving(index);
-    validateNumberOfElementsForRemoving(numberOfElements);
-    if (index + numberOfElements > size) {
-      throw new ArrayIndexOutOfBoundsException();
-    }
-  }
-
+  /**
+   * Element getter.
+   *
+   * @param index of the requested element.
+   * @return value of the requested element.
+   * @throws ArrayIndexOutOfBoundsException if the element doesn't exist.
+   */
   public int getElement(int index) throws ArrayIndexOutOfBoundsException {
-    validateIndexForRemoving(index);
+    if ((index >= dataSize) || (index < 0)) {
+      throw new ArrayIndexOutOfBoundsException();
+    }
     return array[index];
   }
 
-  public void add(int insertElement) {
-    add(insertElement, size);
-  }
-
-  public void add(int insertElement, int insertIndex) throws ArrayIndexOutOfBoundsException {
-    validateIndexForAdding(insertIndex);
-    int[] temp = new int[1];
-    temp[0] = insertElement;
-    add(temp, insertIndex);
-  }
-
-  public void add(int[] insert, int insertIndex) throws ArrayIndexOutOfBoundsException {
-    validateIndexForAdding(insertIndex);
-    int memoryDifference = array.length - (size + insert.length);
+  /**
+   * Adds an element to the end of the array.
+   *
+   * @param element the element to be added.
+   */
+  public void add(int element) {
+    int memoryDifference = array.length - (dataSize + 1);
     if (memoryDifference < 0) {
       allocateMemory(memoryDifference);
     }
-    for (int i = size - 1; i >= 0; i--) {
-      array[i + insert.length] = array[i];
-    }
-    for (int j = 0; j < insert.length; j++) {
-      array[j + insertIndex] = insert[j];
-    }
-    size = size + insert.length;
+    array[dataSize] = element;
+    dataSize = dataSize + 1;
   }
 
+  /**
+   * Inserts an element in the array at the index position.
+   *
+   * @param element the element to be inserted.
+   * @param index indicates the insertion position.
+   * @throws ArrayIndexOutOfBoundsException
+   */
+  public void insert(int element, int index) throws ArrayIndexOutOfBoundsException {
+    if ((index > dataSize) || (index < 0)) {
+      throw new ArrayIndexOutOfBoundsException();
+    }
+    int memoryDifference = array.length - (dataSize + 1);
+    if (memoryDifference < 0) {
+      allocateMemory(memoryDifference);
+    }
+    for (int i = dataSize - 1; i >= 0; i--) {
+      array[i + 1] = array[i];
+    }
+      array[index] = element;
+    dataSize = dataSize + 1;
+  }
+
+  /**
+   * Inserts a number of elements in the array at the index position.
+   *
+   * @param insertArray array of elements to be inserted.
+   * @param index indicates the insertion position.
+   * @throws ArrayIndexOutOfBoundsException
+   */
+  public void insert(int[] insertArray, int index) throws ArrayIndexOutOfBoundsException {
+    if ((index > dataSize) || (index < 0)) {
+      throw new ArrayIndexOutOfBoundsException();
+    }
+    int memoryDifference = array.length - (dataSize + insertArray.length);
+    if (memoryDifference < 0) {
+      allocateMemory(memoryDifference);
+    }
+    for (int i = dataSize - 1; i >= 0; i--) {
+      array[i + insertArray.length] = array[i];
+    }
+    for (int j = 0; j < insertArray.length; j++) {
+      array[j + index] = insertArray[j];
+    }
+    dataSize = dataSize + insertArray.length;
+  }
+
+  /**
+   * Allocates extra memory for the array.
+   *
+   * @param memoryDifference the difference between currently allocated memory and the memory
+   *                         amount the program needs for further processing. Since this method
+   *                         is designed for being called when the program is out of memory,
+   *                         memoryDifference parameter is expected to be less than zero.
+   */
   private void allocateMemory(int memoryDifference) {
     int newLength = calculateNewMemoryLength(memoryDifference);
     int[] newArray = new int[newLength];
@@ -80,21 +114,60 @@ public class ArrayList {
     array = newArray;
   }
 
+  /**
+   * Calculates the memory amount the program needs for the further array processing.
+   *
+   * @param memoryDifference the difference between currently allocated memory and the memory
+   *                         amount the program needs for further processing. Since this method
+   *                         is designed for being called when the program is out of memory,
+   *                         memoryDifference parameter is expected to be less than zero.
+   * @return the calculated length of memory.
+   */
   private int calculateNewMemoryLength(int memoryDifference) {
-    return (size + (-memoryDifference * 2) + ADDITIONAL_MEMORY_LENGTH);
+    return (dataSize + (-memoryDifference * 2) + ADDITIONAL_MEMORY_LENGTH);
   }
 
-  public void remove(int numberOfElements, int removeIndex) throws
+  /**
+   * Removes a number of elements starting from the index position.
+   *
+   * @param numberOfElements a number of elements to be removed.
+   * @param index indicates the removal position.
+   * @throws ArrayIndexOutOfBoundsException
+   * @throws IllegalArgumentException
+   */
+  public void remove(int numberOfElements, int index) throws
           ArrayIndexOutOfBoundsException, IllegalArgumentException {
-    validateRemoving(numberOfElements, removeIndex);
-
-    for (int j = 0; (j < numberOfElements) && (j + removeIndex < size); j++) {
-      array[j + removeIndex] = array[j + removeIndex + numberOfElements];
+    if ((index >= dataSize) || (index < 0)) {
+      throw new ArrayIndexOutOfBoundsException();
     }
-    size = size - numberOfElements;
+    if ((numberOfElements > dataSize) || (numberOfElements <= 0)) {
+      throw new IllegalArgumentException();
+    }
+    if (index + numberOfElements > dataSize) {
+      throw new ArrayIndexOutOfBoundsException();
+    }
+    for (int j = 0; (j < numberOfElements) && (j + index < dataSize); j++) {
+      array[j + index] = array[j + index + numberOfElements];
+    }
+    dataSize = dataSize - numberOfElements;
   }
 
-  public void remove(int removeOnIndex) throws ArrayIndexOutOfBoundsException {
-    remove(1, removeOnIndex);
+  /**
+   * Removes the element at index position.
+   *
+   * @param index indicates the removal position.
+   * @throws ArrayIndexOutOfBoundsException
+   */
+  public void remove(int index) throws ArrayIndexOutOfBoundsException {
+    if ((index >= dataSize) || (index < 0)) {
+      throw new ArrayIndexOutOfBoundsException();
+    }
+    if (dataSize == 0) {
+      throw new IllegalArgumentException();
+    }
+    for (int j = index; j < dataSize; j++) {
+      array[j] = array[j + 1];
+    }
+    dataSize = dataSize - 1;
   }
 }
