@@ -19,10 +19,4 @@ public class AveragePriceCommand implements Command {
     ConsolePrinter printer = new ConsolePrinter();
     printer.printAveragePrice(averagePrice);
   }
-
-  public void execute(String type) {
-    double averagePrice = operator.averagePrice(type);
-    ConsolePrinter printer = new ConsolePrinter();
-    printer.printAveragePrice(averagePrice, type);
-  }
 }

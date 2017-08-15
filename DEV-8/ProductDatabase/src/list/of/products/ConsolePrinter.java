@@ -1,5 +1,9 @@
 package list.of.products;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.LinkedList;
+
 public class ConsolePrinter {
   private final String SPACE = "  ";
   public void printSingleProduct(Product product) {
@@ -33,16 +37,15 @@ public class ConsolePrinter {
     System.out.println(numberOfTypes + " types of products available.");
   }
 
-/*
-  public void printAllProducts(){
+  public void printProductList(List productList) {
     Iterator iterator = productList.iterator();
-    ConsolePrinter consolePrinter = new ConsolePrinter();
     while(iterator.hasNext()) {
       Product product = (Product)iterator.next();
-      consolePrinter.printSingleProduct(product);
+      printSingleProduct(product);
     }
   }
 
+/*
   public void printAllProducts(String type){
     ConsolePrinter consolePrinter = new ConsolePrinter();
     filterProducts(productList, hasType(type)).forEach(product -> consolePrinter

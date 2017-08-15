@@ -69,4 +69,8 @@ public class DatabaseOperator {
     }
     return totalPriceCount/amountCount;
   }
+
+  public List getProductList() {
+    return database.getProductList();
+  }
 }
