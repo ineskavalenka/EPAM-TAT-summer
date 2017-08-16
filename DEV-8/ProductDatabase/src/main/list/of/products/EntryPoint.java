@@ -2,14 +2,6 @@ package main.list.of.products;
 
 import java.util.Scanner;
 
-/*
-  count types - количество типов товаров;
-	count all - общее количество товаров;
-	average price - средняя стоимость товара;
-	average price type - средняя стоимость товара каждого типа (тип задается пользователем), например average price pencil
-  При получении команды exit программа должна завершиться
- */
-
 public class EntryPoint {
 
   public static void main(String a[]) {
