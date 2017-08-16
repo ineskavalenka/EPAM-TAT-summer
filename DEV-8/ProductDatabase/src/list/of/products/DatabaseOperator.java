@@ -5,17 +5,33 @@ import java.util.LinkedList;
 import java.util.Iterator;
 
 //Receiver
+
+/**
+ * Works with the database; counts various database stuff.
+ */
 public class DatabaseOperator {
   Database database;
 
+  /**
+   *
+   * @param database
+   */
   public DatabaseOperator(Database database) {
     this.database = database;
   }
 
+  /**
+   * Adds the product to the database.
+   * @param product
+   */
   public void add(Product product) {
     database.add(product);
   }
 
+  /**
+   * Counts the number of product types.
+   * @return
+   */
   public int countTypes() {
     List productList = database.getProductList();
     Iterator iterator = productList.iterator();
@@ -32,6 +48,10 @@ public class DatabaseOperator {
     return typesCount;
   }
 
+  /**
+   * Counts the total amount of products.
+   * @return
+   */
   public int countAll() {
     List productList = database.getProductList();
     Iterator iterator = productList.iterator();
@@ -43,6 +63,10 @@ public class DatabaseOperator {
     return amountCount;
   }
 
+  /**
+   * Counts the average price of a product.
+   * @return the average price.
+   */
   public double averagePrice() {
     List productList = database.getProductList();
     Iterator iterator = productList.iterator();
@@ -56,6 +80,11 @@ public class DatabaseOperator {
     return totalPriceCount/amountCount;
   }
 
+  /**
+   * Counts the average price of products of given type.
+   * @param type
+   * @return the average price of a type.
+   */
   public double averagePrice(String type) {
     List filteredProductList = database.getFilteredProductList(type);
     int amountCount = 0;
@@ -69,6 +98,10 @@ public class DatabaseOperator {
     return totalPriceCount/amountCount;
   }
 
+  /**
+   * Gets the product list from the database.
+   * @return
+   */
   public List getProductList() {
     return database.getProductList();
   }
