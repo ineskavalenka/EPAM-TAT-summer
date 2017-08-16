@@ -11,6 +11,7 @@ public class PrintAllProductsCommand implements Command{
     this.operator = operator;
   }
 
+  @Override
   public void execute() {
     List productList = operator.getProductList();
     ConsolePrinter printer = new ConsolePrinter();

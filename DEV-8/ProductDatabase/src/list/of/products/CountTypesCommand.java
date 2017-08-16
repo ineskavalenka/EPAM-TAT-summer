@@ -1,5 +1,8 @@
 package list.of.products;
 
+/**
+ * Prints the number of available product types.
+ */
 public class CountTypesCommand implements Command {
   private DatabaseOperator operator;
 
@@ -7,6 +10,7 @@ public class CountTypesCommand implements Command {
     this.operator=operator;
   }
 
+  @Override
   public void execute(){
     int numberOfTypes = operator.countTypes();
     ConsolePrinter printer = new ConsolePrinter();

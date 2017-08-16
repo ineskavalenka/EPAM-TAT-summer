@@ -1,10 +1,6 @@
 package list.of.products;
 
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
-
-import static list.of.products.ProductPredicates.*;
 
 /*
   count types - количество типов товаров;
@@ -37,9 +33,10 @@ public class EntryPoint {
     Command countAll = new CountAllCommand(operator);
     Command averagePrice = new AveragePriceCommand(operator);
     Command printAll = new PrintAllProductsCommand(operator);
+    Command help = new HelpCommand();
 
     for(int i=0;i<10 ;i++) {
-      String userRequest = inputScanner.nextLine();
+      String userRequest = inputScanner.nextLine().trim();
       if (userRequest.startsWith("add")) {
         String userRequestSplit[] = userRequest.split(" ");
         // first word is "add"
@@ -47,7 +44,6 @@ public class EntryPoint {
         String name = userRequestSplit[2];
         int amount = Integer.parseInt(userRequestSplit[3]);
         double price = Double.parseDouble(userRequestSplit[4]);
-
         Command add = new AddCommand(operator, new Product(type, name, amount, price));
         add.execute();
       } else if (userRequest.equals("count types")) {
@@ -66,7 +62,7 @@ public class EntryPoint {
         System.out.println("Bye!");
         return;
       } else if (userRequest.equals("help")) {
-        System.out.println("List of commands.");
+        help.execute();
       } else if (userRequest.equals("print all")) {
         printAll.execute();
       } else {

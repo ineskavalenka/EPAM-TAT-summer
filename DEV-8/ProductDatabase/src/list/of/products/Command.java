@@ -1,5 +1,11 @@
 package list.of.products;
 
-public interface Command{
+/**
+ * Command interface.
+ */
+public interface Command {
+  /**
+   * Executes the command.
+   */
   void execute();
 }
