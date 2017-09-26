@@ -4,7 +4,6 @@ import java.util.Random;
  * Operates on strings.
  */
 public class StringProcessor {
-
   /**
    * Replaces a random fragment from one line by a random fragment from the other.
    *
