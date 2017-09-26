@@ -11,14 +11,11 @@ public class StringProcessor {
    * @param inputPair an object containing two input strings.
    */
   public void randomMerge(PairOfStrings inputPair) {
-
     Random random = new Random();
-
     int firstFragmentIndex = random.nextInt(inputPair.first.length());
     int firstFragmentLength = random.nextInt(inputPair.first.length() - firstFragmentIndex);
     int secondFragmentIndex = random.nextInt(inputPair.second.length());
     int secondFragmentLength = random.nextInt(inputPair.second.length() - secondFragmentIndex);
-
     merge(inputPair, firstFragmentIndex, firstFragmentLength, secondFragmentIndex, secondFragmentLength);
   }
 
