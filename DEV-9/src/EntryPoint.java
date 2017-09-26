@@ -9,7 +9,6 @@
  * consecutive characters selected from the other.
  * Output the original strings and the strings after processing to the console.
  */
-
 public class EntryPoint {
   public static void main(String[]args) {
     StringProcessor processor = new StringProcessor();
