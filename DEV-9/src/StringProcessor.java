@@ -28,8 +28,8 @@ public class StringProcessor {
    * @param secondFragmentLength
    */
   private void merge(PairOfStrings inputPair, int firstFragmentIndex, int firstFragmentLength,
-                    int secondFragmentIndex, int secondFragmentLength){
-    String[] splitFirst = splitOnThree(inputPair.first, firstFragmentIndex,firstFragmentLength);
+                     int secondFragmentIndex, int secondFragmentLength) {
+    String[] splitFirst = splitOnThree(inputPair.first, firstFragmentIndex, firstFragmentLength);
     String[] splitSecond = splitOnThree(inputPair.second, secondFragmentIndex,
             secondFragmentLength);
     inputPair.first = splitFirst[0] + splitSecond[1] + splitFirst[2];
