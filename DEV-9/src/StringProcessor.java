@@ -4,13 +4,18 @@ import java.util.Random;
  * Operates on strings.
  */
 public class StringProcessor {
+  final String WRONG_INPUT_MESSAGE = "Invalid input arguments.";
+
   /**
    * Replaces a random fragment from one line by a random fragment from the other.
    *
-   * @param inputPair an object containing two input strings.
+   * @param inputPair an array containing two input strings.
+   * @throws IllegalAccessException if inputPair array contains less or more than two strings.
    */
   public void randomMerge(String[] inputPair) {
-    //throw
+    if (inputPair.length != 2) {
+      throw new IllegalArgumentException(WRONG_INPUT_MESSAGE);
+    }
     Random random = new Random();
     int firstFragmentIndex = random.nextInt(inputPair[0].length());
     int firstFragmentLength = random.nextInt(inputPair[0].length() - firstFragmentIndex);
@@ -22,7 +27,7 @@ public class StringProcessor {
   /**
    * Swaps the middle fragments of two input strings.
    *
-   * @param inputPair an object containing two input strings.
+   * @param inputPair an array containing two input strings.
    * @param firstFragmentIndex the beginning index of the middle fragment part of the first
    *                           string, inclusive.
    * @param firstFragmentLength the length of the middle fragment part of the first
@@ -44,7 +49,7 @@ public class StringProcessor {
   /**
    * Splits the string into three parts. "Fragment" part is middle part.
    *
-   * @param inputString
+   * @param inputString the input string
    * @param fragmentIndex the beginning index of the middle fragment part of the string,
    *                      inclusive.
    * @param fragmentLength the fragment part length.
