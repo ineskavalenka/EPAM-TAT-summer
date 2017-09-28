@@ -1,6 +1,6 @@
 /**
  * 26.09.17 20.59
- *
+ * <p>
  * Task
  * Name=DEV-9
  * Deadline=29/09/2017 23-00
@@ -10,8 +10,8 @@
  * Output the original strings and the strings after processing to the console.
  */
 public class EntryPoint {
-  public static void main(String[]args) {
-    if(args.length<2) {
+  public static void main(String[] args) {
+    if (args.length < 2) {
       System.out.println("No input arguments. Input arguments must be passed as args[0] and " +
               "args[1]. Program exited.");
       return;
