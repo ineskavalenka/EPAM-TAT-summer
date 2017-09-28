@@ -1,9 +1,4 @@
 /**
- * 26.09.17 20.59
- * <p>
- * Task
- * Name=DEV-9
- * Deadline=29/09/2017 23-00
  * Two strings are given [expected the from args[]]
  * Replace a consecutive group of characters, selected randomly in one line, by a random group of
  * consecutive characters selected from the other.
@@ -14,6 +9,7 @@ public class EntryPoint {
     if (args.length < 2) {
       System.out.println("No input arguments. Input arguments must be passed as args[0] and " +
               "args[1]. Program exited.");
+
       return;
     }
     PairOfStrings inputPair = new PairOfStrings(args[0], args[1]);

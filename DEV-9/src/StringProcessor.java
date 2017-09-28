@@ -22,10 +22,14 @@ public class StringProcessor {
    * Swaps the middle fragments of two input strings.
    *
    * @param inputPair an object containing two input strings.
-   * @param firstFragmentIndex
-   * @param firstFragmentLength
-   * @param secondFragmentIndex
-   * @param secondFragmentLength
+   * @param firstFragmentIndex the beginning index of the middle fragment part of the first
+   *                           string, inclusive.
+   * @param firstFragmentLength the length of the middle fragment part of the first
+   *                           string.
+   * @param secondFragmentIndex the beginning index of the middle fragment part of the first
+   *                            string, inclusive.
+   * @param secondFragmentLength the length of the middle fragment part of the second
+   *                           string.
    */
   private void merge(PairOfStrings inputPair, int firstFragmentIndex, int firstFragmentLength,
                      int secondFragmentIndex, int secondFragmentLength) {
@@ -40,8 +44,9 @@ public class StringProcessor {
    * Splits the string into three parts. "Fragment" part is middle part.
    *
    * @param inputString
-   * @param fragmentIndex
-   * @param fragmentLength
+   * @param fragmentIndex the beginning index of the middle fragment part of the string,
+   *                      inclusive.
+   * @param fragmentLength the fragment part length.
    * @return the array containing three parts.
    */
   private String[] splitOnThree(String inputString, int fragmentIndex, int fragmentLength) {
