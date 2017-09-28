@@ -31,11 +31,11 @@ public class StringProcessor {
    * @param firstFragmentIndex the beginning index of the middle fragment part of the first
    *                           string, inclusive.
    * @param firstFragmentLength the length of the middle fragment part of the first
-   *                           string.
+   *                            string.
    * @param secondFragmentIndex the beginning index of the middle fragment part of the first
    *                            string, inclusive.
    * @param secondFragmentLength the length of the middle fragment part of the second
-   *                           string.
+   *                             string.
    */
   private void merge(String[] inputPair, int firstFragmentIndex, int firstFragmentLength,
       int secondFragmentIndex, int secondFragmentLength) {
