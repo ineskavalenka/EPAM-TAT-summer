@@ -12,16 +12,15 @@ public class EntryPoint {
 
       return;
     }
-    PairOfStrings inputPair = new PairOfStrings(args[0], args[1]);
 
-    System.out.println(inputPair.first);
-    System.out.println(inputPair.second);
+    System.out.println(args[0]);
+    System.out.println(args[1]);
 
     System.out.println("*");
     StringProcessor processor = new StringProcessor();
-    processor.randomMerge(inputPair);
+    processor.randomMerge(args);
 
-    System.out.println(inputPair.first);
-    System.out.println(inputPair.second);
+    System.out.println(args[0]);
+    System.out.println(args[1]);
   }
 }

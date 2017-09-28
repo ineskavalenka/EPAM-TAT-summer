@@ -9,12 +9,13 @@ public class StringProcessor {
    *
    * @param inputPair an object containing two input strings.
    */
-  public void randomMerge(PairOfStrings inputPair) {
+  public void randomMerge(String[] inputPair) {
+    //throw
     Random random = new Random();
-    int firstFragmentIndex = random.nextInt(inputPair.first.length());
-    int firstFragmentLength = random.nextInt(inputPair.first.length() - firstFragmentIndex);
-    int secondFragmentIndex = random.nextInt(inputPair.second.length());
-    int secondFragmentLength = random.nextInt(inputPair.second.length() - secondFragmentIndex);
+    int firstFragmentIndex = random.nextInt(inputPair[0].length());
+    int firstFragmentLength = random.nextInt(inputPair[0].length() - firstFragmentIndex);
+    int secondFragmentIndex = random.nextInt(inputPair[1].length());
+    int secondFragmentLength = random.nextInt(inputPair[1].length() - secondFragmentIndex);
     merge(inputPair, firstFragmentIndex, firstFragmentLength, secondFragmentIndex, secondFragmentLength);
   }
 
@@ -31,13 +32,13 @@ public class StringProcessor {
    * @param secondFragmentLength the length of the middle fragment part of the second
    *                           string.
    */
-  private void merge(PairOfStrings inputPair, int firstFragmentIndex, int firstFragmentLength,
+  private void merge(String[] inputPair, int firstFragmentIndex, int firstFragmentLength,
                      int secondFragmentIndex, int secondFragmentLength) {
-    String[] splitFirst = splitOnThree(inputPair.first, firstFragmentIndex, firstFragmentLength);
-    String[] splitSecond = splitOnThree(inputPair.second, secondFragmentIndex,
+    String[] splitFirst = splitOnThree(inputPair[0], firstFragmentIndex, firstFragmentLength);
+    String[] splitSecond = splitOnThree(inputPair[1], secondFragmentIndex,
             secondFragmentLength);
-    inputPair.first = splitFirst[0] + splitSecond[1] + splitFirst[2];
-    inputPair.second = splitSecond[0] + splitFirst[1] + splitSecond[2];
+    inputPair[0] = splitFirst[0] + splitSecond[1] + splitFirst[2];
+    inputPair[1] = splitSecond[0] + splitFirst[1] + splitSecond[2];
   }
 
   /**
