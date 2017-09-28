@@ -6,7 +6,7 @@
  */
 public class EntryPoint {
   final static String NO_INPUT_MESSAGE = "No input arguments. Input arguments must be passed as "+
-          "args[0] and args[1]. Program exited.";
+      "args[0] and args[1]. Program exited.";
   public static void main(String[] args) {
     try {
       System.out.println(args[0]);
