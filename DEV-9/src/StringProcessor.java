@@ -4,7 +4,7 @@ import java.util.Random;
  * Operates on strings.
  */
 public class StringProcessor {
-  final String WRONG_INPUT_MESSAGE = "Invalid input arguments.";
+  final int NUMBER_OF_INPUT_STRINGS = 2;
 
   /**
    * Replaces a random fragment from one line by a random fragment from the other.
@@ -13,8 +13,8 @@ public class StringProcessor {
    * @throws IllegalAccessException if inputPair array contains less or more than two strings.
    */
   public void randomMerge(String[] inputPair) {
-    if (inputPair.length != 2) {
-      throw new IllegalArgumentException(WRONG_INPUT_MESSAGE);
+    if (inputPair.length != NUMBER_OF_INPUT_STRINGS) {
+      throw new IllegalArgumentException();
     }
     Random random = new Random();
     int firstFragmentIndex = random.nextInt(inputPair[0].length());
@@ -27,7 +27,7 @@ public class StringProcessor {
   /**
    * Swaps the middle fragments of two input strings.
    *
-   * @param inputPair an array containing two input strings.
+   * @param inputStrings an array containing two input strings.
    * @param firstFragmentIndex the beginning index of the middle fragment part of the first
    *                           string, inclusive.
    * @param firstFragmentLength the length of the middle fragment part of the first
@@ -37,22 +37,21 @@ public class StringProcessor {
    * @param secondFragmentLength the length of the middle fragment part of the second
    *                             string.
    */
-  private void merge(String[] inputPair, int firstFragmentIndex, int firstFragmentLength,
+  private void merge(String[] inputStrings, int firstFragmentIndex, int firstFragmentLength,
       int secondFragmentIndex, int secondFragmentLength) {
-    String[] splitFirst = splitOnThree(inputPair[0], firstFragmentIndex, firstFragmentLength);
-    String[] splitSecond = splitOnThree(inputPair[1], secondFragmentIndex,
+    String[] splitFirst = splitOnThree(inputStrings[0], firstFragmentIndex, firstFragmentLength);
+    String[] splitSecond = splitOnThree(inputStrings[1], secondFragmentIndex,
             secondFragmentLength);
-    inputPair[0] = splitFirst[0] + splitSecond[1] + splitFirst[2];
-    inputPair[1] = splitSecond[0] + splitFirst[1] + splitSecond[2];
+    inputStrings[0] = splitFirst[0] + splitSecond[1] + splitFirst[2];
+    inputStrings[1] = splitSecond[0] + splitFirst[1] + splitSecond[2];
   }
 
   /**
-   * Splits the string into three parts. "Fragment" part is middle part.
+   * Splits the string into three parts.
    *
    * @param inputString the input string
-   * @param fragmentIndex the beginning index of the middle fragment part of the string,
-   *                      inclusive.
-   * @param fragmentLength the fragment part length.
+   * @param fragmentIndex the beginning index of the middle part of the string, inclusive.
+   * @param fragmentLength the middle part length.
    * @return the array containing three parts.
    */
   private String[] splitOnThree(String inputString, int fragmentIndex, int fragmentLength) {
