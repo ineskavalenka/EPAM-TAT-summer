@@ -1,55 +1,32 @@
 import java.io.*;
 import java.util.HashMap;
+
 public class Translit {
 
   public static void main(String[] args) {
-    // Create a hash map
-    HashMap ru_en = new HashMap();
-
-    // Put elements to the map
-    ru_en.put("Зара", "Zara");
-    ru_en.put("Mahnaz", "Махназ");
-    ru_en.put("Ayan", new Double(1378.00));
-    ru_en.put("Daisy", new Double(99.22));
-    ru_en.put("Qadir", new Double(-19.08));
-
-
-    String key = "Mahnaz";
-    if (ru_en.containsKey(key)) {
-      System.out.println(ru_en.get(key));
-    } else {
-      System.out.println("no such key");
-    }
-
-    // catch: file not found
-    FileInputStream fstream = null;
-    try {
-      fstream = new FileInputStream("textfile.txt");
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
-    }
-    BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
-
-    String strLine;
+    FileReader fileReader = new FileReader();
 
     try {
-      while ((strLine = br.readLine()) != null)   {
-        // Print the content on the console
-        //catch: incorrect input line
-        String[] parts = strLine.split("-");
-        System.out.println (parts[0] + " turns into " + parts[1]);
+      HashMap ru_en = fileReader.makeDictionary("ru_en_table.txt");
 
+      String inputRU = "поешь еще этих свежих булок.";
+
+      StringProcessor stringProcessor = new StringProcessor();
+      String outputEN = stringProcessor.transliterate(ru_en, inputRU);
+
+      System.out.println(outputEN);
+
+      for (int i = 0; i < inputRU.length(); i++) {
+        String key = inputRU.substring(i, i + 1);
+        if (ru_en.containsKey(key)) {
+          System.out.print(ru_en.get(key));
+        } else {
+          System.out.print(key);
+        }
       }
-    br.close();
-    } catch (IOException e) {
+
+    } catch (Exception e) {
       e.printStackTrace();
     }
-
-
-
-
-
-
-
   }
 }
