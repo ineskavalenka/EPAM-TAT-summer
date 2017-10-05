@@ -1,0 +1,8 @@
+ий -y
+ый -iy
+ОАО-OJSC
+ЗАО-CJSC
+ООО-LLC
+ГОУ-SEE
+МОУ-MEE
+НОУ-NEE

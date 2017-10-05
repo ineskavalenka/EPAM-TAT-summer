@@ -7,9 +7,9 @@ public class Translit {
     FileReader fileReader = new FileReader();
 
     try {
-      HashMap ru_en = fileReader.makeDictionary("ru_en_table.txt");
+      HashMap ru_en = fileReader.makeDictionary("ru_en_1.txt");
 
-      String inputRU = "поешь еще этих свежих булок.";
+      String inputRU = "Поешь еще этих свежих булок. БУЛКИ БУЛКИ ЁЁЁЁ!!!";
 
       StringProcessor stringProcessor = new StringProcessor();
       String outputEN = stringProcessor.transliterate(ru_en, inputRU);
