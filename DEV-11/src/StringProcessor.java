@@ -15,7 +15,7 @@ public class StringProcessor {
    * @param dictionary Ru-En dictionary.
    * @return transliterated in latin input string.
    */
-  public String oneSymbolTransliterate(String inputRu, HashMap dictionary) {
+  public String oneCharTransliterate(String inputRu, HashMap dictionary) {
     String output = "";
     for (int i = 0; i < inputRu.length(); i++) {
       String key = inputRu.substring(i, i + 1);
@@ -37,13 +37,32 @@ public class StringProcessor {
    * @param maxSymbolLength maximum symbol length of input language (in number of chars)
    * @return the transliterated string.
    */
-  public String multipleSymbolTransliterate(String input, HashMap[] dictionaries, int
+  public String multipleCharTransliterate(String input, HashMap[] dictionaries, int
           maxSymbolLength) {
-    //detectSymbolLength()
-    //output+ (detect symbol)
-    //i+=expectedSymbolLength;
-    //return output
-     return input;
+    int i=0;
+    String output = "";
+    /*
+    while (i<input.length()) {
+      int symbolLength = detectSymbolLength(input, i, maxSymbolLength, dictionaries);
+      String symbol = nextSymbol(input, i, symbolLength, dictionaries);
+      output = output + symbol;
+      i += symbolLength;
+    }
+    */
+
+    while (i<input.length()) {
+      try {
+        int symbolLength = detectSymbolLength(input, i, maxSymbolLength, dictionaries);
+          String symbol = nextSymbol(input, i, symbolLength, dictionaries);
+          output = output + symbol;
+          i += symbolLength;
+      } catch (IllegalArgumentException e) {
+        // unknown symbol with length = 1
+        output = output + input.substring(i, i + 1);
+        i++;
+      }
+    }
+    return output;
   };
 
   /**
@@ -64,17 +83,16 @@ public class StringProcessor {
           HashMap[] dictionaries){
     try {
       String symbol = inputString.substring(i,i+expectedSymbolLength);
-      if (expectedSymbolLength==1) {
+      if (expectedSymbolLength == 0) {
         //symbol not found =>(punctuation/space? can't translate)
-        return 1;
+        //return 1;
+        throw new IllegalArgumentException();
       }
       if (dictionaries[expectedSymbolLength].containsKey(symbol)) {
         return expectedSymbolLength;
       }
-      //if neither
-      throw new IllegalArgumentException();
-      //IllegalArg / ArrayOutOf
-    } catch (Exception e){
+      return detectSymbolLength(inputString, i, expectedSymbolLength-1,dictionaries );
+    } catch (StringIndexOutOfBoundsException e){
         return detectSymbolLength(inputString, i, expectedSymbolLength-1,dictionaries );
     }
   }

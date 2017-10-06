@@ -11,7 +11,7 @@
 ые-yye
 ье-'ye
 ъе-"ye
- е-ye
+ е- ye
 аё-aye
 уё-uye
 оё-oye
@@ -24,7 +24,7 @@
 ыё-yye
 ьё-'ye
 ъё-"ye
- ё-ye
+ ё- ye
 Ае-Aye
 Уе-Uye
 Ое-Oye
@@ -35,7 +35,7 @@
 Ёе-Eye
 Эе-Eye
 Ые-Yye
- Е-Ye
+ Е- Ye
 Аё-Aye
 Уё-Uye
 Оё-Oye
@@ -46,4 +46,4 @@
 Ёё-Eye
 Эё-Eye
 Ыё-Yye
- Ё-Ye
+ Ё- Ye
