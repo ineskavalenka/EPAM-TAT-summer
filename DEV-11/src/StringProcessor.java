@@ -1,7 +1,4 @@
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * Performs transliteration operations on strings.
@@ -41,15 +38,6 @@ public class StringProcessor {
           maxSymbolLength) {
     int i=0;
     String output = "";
-    /*
-    while (i<input.length()) {
-      int symbolLength = detectSymbolLength(input, i, maxSymbolLength, dictionaries);
-      String symbol = nextSymbol(input, i, symbolLength, dictionaries);
-      output = output + symbol;
-      i += symbolLength;
-    }
-    */
-
     while (i<input.length()) {
       try {
         int symbolLength = detectSymbolLength(input, i, maxSymbolLength, dictionaries);
@@ -77,7 +65,9 @@ public class StringProcessor {
    * @param expectedSymbolLength expected symbol length.
    * @param dictionaries an array of "dictionary"-hashmaps. dictionaries[N] is a dictionary with
    *                     N-char-length keys.
-   * @return the real symbol length, or 1 if the symbol cant be found in given dictionaries.
+   * @return the real symbol length.
+   * @throws IllegalArgumentException if the symbol is single-char length and cant be found in
+   *                                  given dictionaries.
    */
   private int detectSymbolLength(String inputString, int i, int expectedSymbolLength,
           HashMap[] dictionaries){
@@ -85,16 +75,15 @@ public class StringProcessor {
       String symbol = inputString.substring(i,i+expectedSymbolLength);
       if (expectedSymbolLength == 0) {
         //symbol not found =>(punctuation/space? can't translate)
-        //return 1;
         throw new IllegalArgumentException();
       }
       if (dictionaries[expectedSymbolLength].containsKey(symbol)) {
         return expectedSymbolLength;
       }
-      return detectSymbolLength(inputString, i, expectedSymbolLength-1,dictionaries );
     } catch (StringIndexOutOfBoundsException e){
-        return detectSymbolLength(inputString, i, expectedSymbolLength-1,dictionaries );
+      // it's ok, just go ahead
     }
+    return detectSymbolLength(inputString, i, expectedSymbolLength-1,dictionaries );
   }
 
   private String nextSymbol(String inputString, int i, int symbolLength,
